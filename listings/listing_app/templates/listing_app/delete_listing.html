@@ -1,0 +1,16 @@
+{% extends "listing_app/base.html" %}
+
+{% block content %}
+<div class="main">
+    <form method="POST">
+        <div class="container">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            <h3>Do you want to delete <b>{{listing.title}}</b> listing ? </h3>
+            <p><input type="submit" class="btn" value="Delete" />
+            <a class= "btn" href="{% url 'listing_app:my_listings'%}">Cancel</a></p>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

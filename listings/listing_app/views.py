@@ -40,3 +40,27 @@ def my_listings(request):
     my_listings = ListingsApp.objects.order_by("-list_date")
     context = {"my_listings": my_listings}
     return render(request, "listing_app/my_listings.html", context)
+
+
+def edit_listing(request, edit_id):
+    listing = ListingsApp.objects.get(id=edit_id)
+
+    if request.method != "POST":
+        form = ListingForm(instance=listing)
+    else:
+        form = ListingForm(request.POST, request.FILES, instance=listing)
+        if form.is_valid:
+            form.save()
+            return redirect("listing_app:all_listings")
+
+    context = {"listing": listing, "form": form}
+    return render(request, "listing_app/edit_listing.html", context)
+
+
+def delete_listing(request, delete_id):
+    listing = ListingsApp.objects.get(id=delete_id)
+    if request.method == "POST":
+        listing.delete()
+        return redirect("listing_app:my_listings")
+    context = {"listing": listing}
+    return render(request, "listing_app/delete_listing.html", context)

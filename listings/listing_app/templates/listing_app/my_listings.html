@@ -23,9 +23,8 @@
 					<td>{{ my_listing.title }}</td>
 					<td>{{ my_listing.list_date }}</td>
 					<td><a class="btn" href="{% url 'listing_app:detail' my_listing.id %}">View</a></td>
-					<td></td>
-					<td><a class="btn" href="">Edit</a></td>
-					<td><a class="btn" href="">Delete</a></td>
+					<td><a class="btn" href="{% url 'listing_app:edit_listing' my_listing.id %}">Edit</a></td>
+                    <td><a class="btn" href="{% url 'listing_app:delete_listing' my_listing.id %}">Delete</a></td>
 				</tr>
 
 				{% endfor %}
