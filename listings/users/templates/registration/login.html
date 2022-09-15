@@ -1,0 +1,15 @@
+{% extends "listing_app/base.html" %}
+
+{% block content %}
+<h1 class="text-center">Login</h1>
+
+<form method="POST" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p}}
+
+    <button name="submit" class="btn">Log in</button>
+    <input type="hidden" name="next"
+    value="{% url 'listing_app:index' %}" />
+</form>
+
+{% endblock content %}
