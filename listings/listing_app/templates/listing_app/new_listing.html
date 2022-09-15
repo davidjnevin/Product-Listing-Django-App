@@ -1,0 +1,15 @@
+{% extends "listing_app/base.html" %}
+
+{%block content%}
+
+<h1>NEW LISTING</h1>
+
+<form action="{% url 'listing_app:new_listing' %}" method='post' enctype="multipart/form-data">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn">Create Listing</button>
+</form>
+
+{%endblock content%}
