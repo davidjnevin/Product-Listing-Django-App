@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.shortcuts import redirect, render
 
-# Create your views here.
+
+def log_out(request):
+    logout(request)
+    return redirect("listing_app:index")
