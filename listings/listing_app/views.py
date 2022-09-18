@@ -23,7 +23,9 @@ def new_listing(request):
     else:
         form = ListingForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
             return redirect("listing_app:all_listings")
 
     context = {"form": form}
@@ -37,7 +39,7 @@ def detail(request, detail_id):
 
 
 def my_listings(request):
-    my_listings = ListingsApp.objects.order_by("-list_date")
+    my_listings = request.user.listingsApp_set.order_by("-list_date")
     context = {"my_listings": my_listings}
     return render(request, "listing_app/my_listings.html", context)
 

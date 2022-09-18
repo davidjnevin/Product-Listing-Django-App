@@ -1,9 +1,9 @@
 <nav class = "navbar">
     <a href="{% url 'listing_app:index' %}">BIKE FINDER</a> -
     <a href="{% url 'listing_app:all_listings' %}">LISTINGS</a> -
-    <a href="{% url 'listing_app:my_listings' %}">MY LISTINGS</a> -
     {% if user.is_authenticated %}
     {{ user.username }} -
+    <a href="{% url 'listing_app:my_listings' %}">MY LISTINGS</a> -
     <a href="{% url 'users:log_out' %}">LOG OUT</a>
     {% else %}
     <a href="{% url 'users:login' %}">LOGIN</a> -

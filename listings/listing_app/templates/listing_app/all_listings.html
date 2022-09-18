@@ -7,7 +7,8 @@
 <div class="col">
     <div class="card">
         {% for listing in all_listings %}
-
+            <img src="{{ listing.main_photo.url }}" width= 250px height=300px alt="connect" style="max-height:200px">
+            <img src="{{ listing.photo_1.url }}" width= 250px height=300px alt="connect" style="max-height:200px">
             <p><b>Title:</b> {{ listing.title }}</p>
             <p><b>Condition:</b> {{ listing.condition }}</p>
             <p><b>Sale Type:</b> {{ listing.sale_type }}</p>

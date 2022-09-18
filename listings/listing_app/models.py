@@ -20,7 +20,9 @@ class ListingsApp(models.Model):
         MODELS = "Models"
         OTHER = "Other"
 
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, null=True, on_delete=models.CASCADE, related_name="listingsApp_set"
+    )
     title = models.CharField(max_length=100)
     condition = models.CharField(
         max_length=50, choices=ConditionType.choices, default=ConditionType.USED
