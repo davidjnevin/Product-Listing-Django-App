@@ -1,0 +1,14 @@
+{% extends "listing_app/base.html" %}
+
+{% block content %}
+
+<h1>Create Account</h1>
+<form method="post" action="{% url 'users:register' %}">
+   {% csrf_token %}
+   {{ form.as_p}}
+
+   <button name="submit" class="btn">Register</button>
+   <input type="hidden" name="next" value="{% url 'users:login' %}" />
+</form>
+
+{% endblock content %}
