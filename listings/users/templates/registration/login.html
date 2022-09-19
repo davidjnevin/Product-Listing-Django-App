@@ -1,15 +1,16 @@
 {% extends "listing_app/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1 class="text-center">Login</h1>
-
-<form method="POST" action="{% url 'users:login' %}">
-    {% csrf_token %}
-    {{ form.as_p}}
-
-    <button name="submit" class="btn">Log in</button>
-    <input type="hidden" name="next"
-    value="{% url 'listing_app:index' %}" />
-</form>
-
+<h1 class="text-center p-3">Login</h1>
+<div class="container p-3" style="width:35%;">
+    <form method="POST" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="container text-center">
+        <button name="submit" class="btn btn-warning">Submit</button>
+        <input type="hidden" name="next" value="{% url 'listing_app:index' %}"/>
+        </div>
+    </form>
+</div>
 {% endblock content %}

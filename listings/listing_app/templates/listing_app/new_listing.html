@@ -1,15 +1,50 @@
 {% extends "listing_app/base.html" %}
+{% load crispy_forms_tags %}
 
 {%block content%}
+<h2 class="p-3 text-center">NEW LISTING</h2>
+<div class="container" style="width: 50%;">
+    <form action="{% url 'listing_app:new_listing' %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
 
-<h1>NEW LISTING</h1>
-
-<form action="{% url 'listing_app:new_listing' %}" method='post' enctype="multipart/form-data">
-    <div class="form-group">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <div class="row">
+        <div class="col">{{ form.title|as_crispy_field }}</div>
+        <div class="col">{{ form.product_type|as_crispy_field }}</div>
     </div>
-    <button type="submit" class="btn">Create Listing</button>
-</form>
+
+    <div class="row">
+        <div class="col">{{ form.condition|as_crispy_field }}</div>
+        <div class="col">{{ form.sale_type|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col">{{ form.city|as_crispy_field }}</div>
+        <div class="col">{{ form.state|as_crispy_field }}</div>
+        <div class="col">{{ form.zipcode|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col">{{ form.price|as_crispy_field }}</div>
+        <div class="col">{{ form.contact_email|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">{{ form.main_photo|as_crispy_field }}</div>
+        <div class="col-6">{{ form.photo_1|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">{{ form.photo_2|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">{{ form.list_date|as_crispy_field }}</div>
+    </div>
+
+    <div class = "container text-center p-3">
+        <button type="submit" class="btn btn-warning">Create Listing</button>
+    </div>
+    </form>
+</div>
 
 {%endblock content%}

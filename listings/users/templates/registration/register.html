@@ -1,14 +1,16 @@
 {% extends "listing_app/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-
-<h1>Create Account</h1>
-<form method="post" action="{% url 'users:register' %}">
-   {% csrf_token %}
-   {{ form.as_p}}
-
-   <button name="submit" class="btn">Register</button>
-   <input type="hidden" name="next" value="{% url 'users:login' %}" />
-</form>
-
+<h2 class="text-center p-3">Create Account</h2>
+<div class="container p-3" style="width:40%;">
+    <form method="POST" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="container text-center">
+        <button name="submit" class="btn btn-warning">Register</button>
+        <input type="hidden" name="next" value="{% url 'users:login' %}"/>
+        </div>
+    </form>
+</div>
 {% endblock content %}
