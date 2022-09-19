@@ -1,0 +1,1 @@
+aws rds create-db-instance --db-name listing_app_educative --db-instance-identifier database-listing --db-instance-class db.t3.micro --engine postgres --master-username davidjnevin_Listing --master-user-password asdfqwer1234!@# --backup-retention-period 7 --port 5432 --publicly-accessible --allocated-storage 10
