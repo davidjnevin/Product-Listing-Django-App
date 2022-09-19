@@ -121,7 +121,7 @@ venv.bak/
 /site
 
 # third party setup folder
-setup_steps/
+setup_step/
 
 # mypy
 .mypy_cache/
