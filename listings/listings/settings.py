@@ -14,7 +14,21 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
-
+# Databse config
+if DEBUG is True:
+    DB_ENGINE = config("DEBUG_ENGINE")
+    DB_NAME = config("DEBUG_NAME")
+    DB_USER = config("DEBUG_USER")
+    DB_PASSWORD = config("DEBUG_PASSWORD")
+    DB_HOST = config("DEBUG_HOST")
+    DB_PORT = config("DEGUG_PORT")
+else:
+    DB_ENGINE = config("ENGINE")
+    DB_NAME = config("NAME")
+    DB_USER = config("USER")
+    DB_PASSWORD = config("PASSWORD")
+    DB_HOST = config("HOST")
+    DB_PORT = config("PORT")
 # Application definition
 
 INSTALLED_APPS = [
@@ -71,11 +85,12 @@ WSGI_APPLICATION = "listings.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "davidjnevin",
-        "PASSWORD": "Password10!",
-        "HOST": "localhost",
+        "ENGINE": DB_ENGINE,
+        "NAME": DB_NAME,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD,
+        "HOST": DB_HOST,
+        "PORT": DB_PORT,
     }
 }
 
