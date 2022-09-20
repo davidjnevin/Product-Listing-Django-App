@@ -90,7 +90,7 @@ version = "4.1.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
-python-versions = ">=3.8"
+python-versions = "*"
 
 [package.dependencies]
 asgiref = ">=3.5.2,<4"
@@ -291,7 +291,7 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<4.0"
-content-hash = "1c764c5b320b2aa57d320dbc800502bb2556dc48f48376ad3543ba4454214631"
+content-hash = "5f6e3717b81c6640138e683fee6e2fa922e41bbe76c913877878364ac0f738cc"
 
 [metadata.files]
 asgiref = [
