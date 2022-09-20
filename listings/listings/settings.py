@@ -25,12 +25,6 @@ if DEBUG is True:
     DB_PORT = config("DEV_PORT")
 else:
     ALLOWED_HOSTS = []
-    DB_ENGINE = config("ENGINE")
-    DB_NAME = config("NAME")
-    DB_USER = config("USER")
-    DB_PASSWORD = config("PASSWORD")
-    DB_HOST = config("HOST")
-    DB_PORT = config("PORT")
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
