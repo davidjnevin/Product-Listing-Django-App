@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "listing"
 version = "0.1.0"
-description = ""
+description = "Basic Listing App: User authentication/authorization, and filters"
 authors = ["David J Nevin <content@davidjnevin.com>"]
 license = "MIT"
 
@@ -18,6 +18,17 @@ whitenoise = {extras = ["brotli"], version = "^6.2.0"}
 gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
+
+python = "^3.9"
+Django = "^4.1.1"
+psycopg2 = "^2.9.3"
+Pillow = "^9.2.0"
+python-decouple = "^3.6"
+django-filter = "^22.1"
+crispy-bootstrap5 = "^0.6"
+dj-database-url = "^1.0.0"
+whitenoise = {extras = ["brotli"], version = "^6.2.0"}
+gunicorn = "^20.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
