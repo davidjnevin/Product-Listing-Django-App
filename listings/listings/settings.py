@@ -1,3 +1,5 @@
+"""Listings App built following Educative Django COurse September 2020."""
+
 import os
 from pathlib import Path
 
@@ -158,9 +160,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # S3 BUCKETS
 # Storages
-AWS_ACCESS_KEY_ID = os.environ.get(
-    "AWS_ACCESS_KEY_ID", default=config("AWS_ACCESS_KEY_ID")
-)
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", default=config("AWS_ACCESS_KEY_ID"))
 AWS_SECRET_ACCESS_KEY = os.environ.get(
     "AWS_SECRET_ACCESS_KEY", default=config("AWS_SECRET_ACCESS_KEY")
 )

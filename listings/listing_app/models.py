@@ -30,9 +30,7 @@ class ListingsApp(models.Model):
     product_type = models.CharField(
         max_length=50, choices=ProductType.choices, default=ProductType.BIKE
     )
-    sale_type = models.CharField(
-        max_length=50, choices=SaleType.choices, default=SaleType.SHIP
-    )
+    sale_type = models.CharField(max_length=50, choices=SaleType.choices, default=SaleType.SHIP)
     price = models.FloatField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=25)
